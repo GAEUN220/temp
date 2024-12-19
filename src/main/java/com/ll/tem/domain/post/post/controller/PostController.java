@@ -1,7 +1,10 @@
 package com.ll.tem.domain.post.post.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/posts")
@@ -22,9 +25,16 @@ public class PostController {
     @PostMapping("/write")
     @ResponseBody
     public String write(
-            @RequestParam String title,
-            @RequestParam String content
+            String title,
+            String content
     ) {
+        if (title == null || title.isBlank()) {
+            return "제목을 입력하세요";
+    }
+        if (content == null || content.isBlank()) {
+            return "내용을 입력하세요";
+        }
+
         return """
                 <h1>글쓰기 완료</h1>
                 
