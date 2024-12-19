@@ -15,7 +15,9 @@ public class PostController {
                 <div>%s</div>
                 <form method="POST">
                     <input type="text" name="title" placeholder="제목" value="%s">
+                    <br>
                     <textarea name="content" placeholder="내용">%s</textarea>
+                    <br>
                     <button type="submit">글쓰기</button>
                 </form>
                 """.formatted(errorMessage, title, content);
